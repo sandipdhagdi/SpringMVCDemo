@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="employee" class="com.sandip.test.pojos.Employee"></bean>
+
+	<!-- constructor dependency injection -->
+	<!-- <bean id="card" class="com.springdemo.cards.AtmCard"></bean> <bean 
+		id="account" class="com.springdemo.account.SavingAccount"> <constructor-arg 
+		ref="card"> </constructor-arg> </bean> -->
+
+	<!-- Setter dependency injection -->
+	<!-- <bean id="card" class="com.springdemo.cards.CreditCard"></bean> <bean 
+		id="account" class="com.springdemo.account.CurrentAccount"> <property name="card" 
+		ref="card"></property> </bean> -->
+
+	<!-- Using autowire for dependency injection -->
+	<!-- For auto wire property name in bean and id attribute value eg cards 
+		should be same Auto wire can be default, constructor, byName, byType -->
+	<bean id="cards" class="com.springdemo.cards.CreditCard"></bean>
+	<bean id="account" class="com.springdemo.account.CurrentAccount"
+		autowire="byName">
+	</bean>
 
 </beans>
