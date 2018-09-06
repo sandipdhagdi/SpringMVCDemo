@@ -21,9 +21,16 @@
 	<!-- Using autowire for dependency injection -->
 	<!-- For auto wire property name in bean and id attribute value eg cards 
 		should be same Auto wire can be default, constructor, byName, byType -->
-	<bean id="cards" class="com.springdemo.cards.CreditCard"></bean>
+<!-- 	<bean id="cards" class="com.springdemo.cards.CreditCard"></bean>
 	<bean id="account" class="com.springdemo.account.CurrentAccount"
 		autowire="byName">
-	</bean>
+	</bean> -->
 
+	<!-- Using setter for dependency injection -->
+	<!-- For auto wire property name in bean and id attribute value eg cards 
+		should be same Auto wire can be default, constructor, byName, byType -->
+	<bean id="cards" class="com.springdemo.cards.CreditCard"></bean>
+	<bean id="account" class="com.springdemo.account.CurrentAccount">
+	<property name="card" ref="cards"></property>
+	</bean>
 </beans>
